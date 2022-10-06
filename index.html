@@ -1,0 +1,56 @@
+<!--
+unity webgl responsive
+
+template by dom
+dom@crowscrowscrows.com
+https://twitter.com/zerstoerer
+
+source code on github
+https://github.com/sno/unity-webgl-responsive
+-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <link rel="stylesheet" href="BTMetaStyle.css" />
+    
+    <title>btmeta</title>
+  </head>
+  <body>
+    <div class="bt_meta_wrapper_show">
+      <div class="bt_meta_styled">
+      <div class="webgl-wrapper">
+        <div class="aspect"></div>
+        <div class="webgl-content">
+          <div id="unityContainer">
+            <canvas id="unity-canvas" style="background: #FFFFFF"></canvas>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+    <script src="MyLoader.js"></script>
+    <script>
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        dataUrl: "Build/GGART_WebGL.data.unityweb",
+        frameworkUrl: "Build/GGART_WebGL.framework.js.unityweb",
+        codeUrl: "Build/GGART_WebGL.wasm.unityweb",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "BigTeam",
+        productName: "btmeta",
+        productVersion: "1.0",
+      }).then((unityInstance) => {
+        myGameInstance = unityInstance;
+      });
+    </script>
+  </body>
+</html>
